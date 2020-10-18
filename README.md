@@ -1,2 +1,2 @@
 # paradigmas
-meus codigos burros de haskell
+meus codigos burros de haskell, python e java
