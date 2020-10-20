@@ -1,2 +1,1 @@
-# paradigmas
-meus codigos burros de haskell, python e java
+Alguns códigos da disciplina de paradigmas de linguagens computacionais
