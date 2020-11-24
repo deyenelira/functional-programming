@@ -284,68 +284,17 @@ class ExprTernaria implements Expression {
     return ret;
   }
   public String imprimirArvore(String expr){
-    String ret = "";
-    String fst = "";
-    String snd = "";
-    String trd = "";
-    //exprLogica ? ExprQualquer : ExprQualquer
-    for(int i=0; i<expr.length(); i++){
-      if(expr.charAt(i)=='?'){
-        fst = expr.substring(0, i);
-        for(int j=0; j<expr.length(); j++){
-          if(expr.charAt(j)==':'){
-            snd = expr.substring(i+1, j);
-            trd = expr.substring(j+1);
-            i = expr.length() + 1;
-            break;
-          }
-        }
-      }
-    }
-    System.out.println(fst);
-    System.out.println(snd);
-    System.out.println(trd);
-    ExprLogica logic = new ExprLogica();
-    ExprAritmetica arit = new ExprAritmetica();
-
-    String tipo = "arit";
-
-    for(int i=0; i<snd.length(); i++){
-      if(snd.charAt(i)=='<' || snd.charAt(i)=='>' || snd.charAt(i)=='!' || snd.charAt(i)=='='){
-        tipo = "logic";
-        break;
-      }
-    }
-    if(tipo=="arit"){
-      String inv = new StringBuilder(snd).reverse().toString();
-      snd = arit.imprimirArvore(inv);
-    }else{
-      snd = arit.imprimirArvore(snd);
-    }
-
-    for(int i=0; i<trd.length(); i++){
-      if(trd.charAt(i)=='<' || trd.charAt(i)=='>' || trd.charAt(i)=='!' || trd.charAt(i)=='='){
-        tipo = "logic";
-        break;
-      }
-    }
-    if(tipo=="arit"){
-      String inv = new StringBuilder(trd).reverse().toString();
-      trd = arit.imprimirArvore(inv);
-    }else{
-      trd = arit.imprimirArvore(trd);
-    }
-    fst = arit.imprimirArvore(fst);
-    String resp = fst + '?' + snd + ':' + trd;
-    return resp;
+    return "nfiz";
   }
 }
 class Main {
   public static void main(String[] args) {
-    //(((2)*(3))+((4)/(6)))!=((3)/(4))?((96)+((45)*(3))):((((26)*(7))*((6)/(4)))+(3))
-    String ent = "2*3+4/6!=3/4?96+45*3:26*7*6/4+3";
+   System.out.println("Digite a entrada");
+    Scanner entrada = new Scanner(System.in);
+    String str = entrada.nextLine();
+    entrada.close();
     ExprTernaria a = new ExprTernaria();
-    System.out.println(a.imprimirArvore(ent));
+    System.out.println(a.avaliar(str));
   }
   
 }
